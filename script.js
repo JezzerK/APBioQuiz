@@ -2468,7 +2468,25 @@ function calculateSkillChange(currentAccuracy, currentSkill) {
     // Calculate skill change based on accuracy
     let change = 0;
     
-    if (currentAccuracy >= CONFIG.SKILL_INCREASE_THRESHOLD) {
+    // If perfect score (5/5 = 100%), advance to next level
+    if (currentAccuracy === 1.0) {
+        // Level thresholds: 1->2: 40, 2->3: 60, 3->4: 75, 4->5: 85
+        let nextThreshold = 40;
+        if (currentSkill >= 85) {
+            // Already at max level, no change needed
+            return 0;
+        } else if (currentSkill >= 75) {
+            nextThreshold = 85; // Level 4 -> 5
+        } else if (currentSkill >= 60) {
+            nextThreshold = 75; // Level 3 -> 4
+        } else if (currentSkill >= 40) {
+            nextThreshold = 60; // Level 2 -> 3
+        } else {
+            nextThreshold = 40; // Level 1 -> 2
+        }
+        // Calculate change needed to reach next threshold
+        change = nextThreshold - currentSkill;
+    } else if (currentAccuracy >= CONFIG.SKILL_INCREASE_THRESHOLD) {
         // Increase skill - more increase for higher accuracy
         const excessAccuracy = currentAccuracy - CONFIG.SKILL_INCREASE_THRESHOLD;
         change = CONFIG.SKILL_INCREASE_AMOUNT * 100 * (1 + excessAccuracy * 2); // Scale by excess accuracy
