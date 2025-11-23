@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AP Biology Quiz Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Unit Selection Menu -->
+    <div id="unit-selection" class="container">
+        <header>
+            <h1>AP Biology Quiz</h1>
+            <p>Select a unit to begin practicing</p>
+        </header>
+
+        <nav class="unit-nav">
+            <div class="unit-grid">
+                <div class="unit-card disabled" data-unit="1">
+                    <div class="unit-icon">1️⃣</div>
+                    <h3>Unit 1</h3>
+                    <p>Chemistry of Life</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card active" data-unit="2">
+                    <div class="unit-icon">2️⃣</div>
+                    <h3>Unit 2</h3>
+                    <p>Cell Structure and Function</p>
+                    <div class="unit-status">
+                        <span class="status-badge available">Available</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="3">
+                    <div class="unit-icon">3️⃣</div>
+                    <h3>Unit 3</h3>
+                    <p>Cellular Energetics</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="4">
+                    <div class="unit-icon">4️⃣</div>
+                    <h3>Unit 4</h3>
+                    <p>Cell Communication and Cell Cycle</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="5">
+                    <div class="unit-icon">5️⃣</div>
+                    <h3>Unit 5</h3>
+                    <p>Heredity</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="6">
+                    <div class="unit-icon">6️⃣</div>
+                    <h3>Unit 6</h3>
+                    <p>Gene Expression and Regulation</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="7">
+                    <div class="unit-icon">7️⃣</div>
+                    <h3>Unit 7</h3>
+                    <p>Natural Selection</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+                
+                <div class="unit-card disabled" data-unit="8">
+                    <div class="unit-icon">8️⃣</div>
+                    <h3>Unit 8</h3>
+                    <p>Ecology</p>
+                    <div class="unit-status">
+                        <span class="status-badge coming-soon">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Menu (Section Selection) -->
+    <div id="main-menu" class="container hidden">
+        <div class="menu-header">
+            <button class="back-btn" id="back-to-units-btn">← Back to Units</button>
+        </div>
+        
+        <header>
+            <h1>Unit 2: Cell Structure and Function</h1>
+            <p>Test your knowledge of cell structure and function. Master each topic to become a biology expert!</p>
+        </header>
+
+        <nav class="module-nav">
+            <div class="nav-grid">
+                <div class="module-card" data-section="transport">
+                    <div class="module-icon">💧</div>
+                    <h3>Transport Mechanisms</h3>
+                    <p>Tonicity, osmoregulation, and water potential</p>
+                    <div class="skill-bar-container" id="skill-transport">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-transport"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-transport">0%</span>
+                            <span class="skill-name" id="skill-name-transport">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module-card" data-section="diffusion">
+                    <div class="module-icon">↔️</div>
+                    <h3>Facilitated Diffusion</h3>
+                    <p>Membrane permeability and transport</p>
+                    <div class="skill-bar-container" id="skill-diffusion">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-diffusion"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-diffusion">0%</span>
+                            <span class="skill-name" id="skill-name-diffusion">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module-card" data-section="membranes">
+                    <div class="module-icon">🔲</div>
+                    <h3>Plasma Membranes</h3>
+                    <p>Structure and function of cell membranes</p>
+                    <div class="skill-bar-container" id="skill-membranes">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-membranes"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-membranes">0%</span>
+                            <span class="skill-name" id="skill-name-membranes">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module-card" data-section="structures">
+                    <div class="module-icon">🧬</div>
+                    <h3>Cell Structures</h3>
+                    <p>Organelles and their functions</p>
+                    <div class="skill-bar-container" id="skill-structures">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-structures"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-structures">0%</span>
+                            <span class="skill-name" id="skill-name-structures">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module-card" data-section="compartmentalization">
+                    <div class="module-icon">📦</div>
+                    <h3>Compartmentalization</h3>
+                    <p>Cell organization and origins</p>
+                    <div class="skill-bar-container" id="skill-compartmentalization">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-compartmentalization"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-compartmentalization">0%</span>
+                            <span class="skill-name" id="skill-name-compartmentalization">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="module-card" data-section="chi-squared">
+                    <div class="module-icon">📊</div>
+                    <h3>Chi-Squared Tests</h3>
+                    <p>Statistical analysis and calculations</p>
+                    <div class="skill-bar-container" id="skill-chi-squared">
+                        <div class="skill-label">Skill:</div>
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" id="skill-fill-chi-squared"></div>
+                            </div>
+                            <span class="skill-percentage" id="skill-percent-chi-squared">0%</span>
+                            <span class="skill-name" id="skill-name-chi-squared">Beginner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="progress-section">
+            <h3>Overall Progress</h3>
+            <div class="progress-stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-questions">0</span>
+                    <span class="stat-label">Questions Answered</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="correct-answers">0</span>
+                    <span class="stat-label">Correct Answers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="accuracy">0%</span>
+                    <span class="stat-label">Accuracy</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="sections-completed">0/6</span>
+                    <span class="stat-label">Sections Completed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Interface -->
+    <div id="game-interface" class="game-interface hidden">
+        <div class="game-header">
+            <div class="timer-container">
+                <div class="timer-label">Time</div>
+                <div class="timer-display" id="timer-display">00:00</div>
+            </div>
+            
+            <div class="score-container">
+                <div class="score-label">Score</div>
+                <div class="score-display" id="score-display">0</div>
+            </div>
+            
+            <button class="back-btn" id="exit-game-btn">Exit Quiz</button>
+        </div>
+
+        <div class="game-content">
+            <div class="section-info">
+                <h2 id="current-section-name">Section Name</h2>
+                <div class="question-progress" id="question-progress">Question 1 of 10</div>
+            </div>
+
+            <div class="question-container" id="question-container">
+                <div class="question-text" id="question-text"></div>
+                
+                <!-- Multiple Choice Options -->
+                <div class="answer-options" id="answer-options"></div>
+                
+                <!-- Chi-squared Input Area -->
+                <div class="chi-squared-input hidden" id="chi-squared-input">
+                    <div class="data-table" id="chi-squared-table"></div>
+                    <div class="calculation-inputs">
+                        <label>
+                            Chi-squared (χ²) value:
+                            <input type="number" step="0.01" id="chi-squared-value" placeholder="Enter χ²">
+                        </label>
+                        <label>
+                            Degrees of Freedom:
+                            <input type="number" id="degrees-freedom" placeholder="Enter df">
+                        </label>
+                        <button class="check-btn" id="check-chi-squared-btn">Check Answer</button>
+                    </div>
+                </div>
+                
+                <button class="check-btn hidden" id="check-answer-btn">Check Answer</button>
+                <button class="check-btn hidden" id="next-question-btn">Next Question</button>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="results-screen hidden">
+        <div class="results-container">
+            <h2>Section Complete!</h2>
+            
+            <div class="results-stats">
+                <div class="result-stat">
+                    <span class="result-label">Final Score</span>
+                    <span class="result-value" id="final-score">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Correct Answers</span>
+                    <span class="result-value" id="final-correct">0</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Accuracy</span>
+                    <span class="result-value" id="final-accuracy">0%</span>
+                </div>
+                <div class="result-stat">
+                    <span class="result-label">Final Health</span>
+                    <span class="result-value" id="final-health">100%</span>
+                </div>
+            </div>
+
+            <div class="results-actions">
+                <button class="action-btn primary" id="retry-btn">Retry Section</button>
+                <button class="action-btn secondary" id="menu-btn">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js?v=20250123"></script>
+</body>
+</html>
