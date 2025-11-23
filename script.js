@@ -2469,7 +2469,8 @@ function calculateSkillChange(currentAccuracy, currentSkill) {
     let change = 0;
     
     // If perfect score (5/5 = 100%), advance to next level
-    if (currentAccuracy === 1.0) {
+    // Use >= 0.999 to handle floating point precision issues
+    if (currentAccuracy >= 0.999) {
         // Level thresholds: 1->2: 40, 2->3: 60, 3->4: 75, 4->5: 85
         let nextThreshold = 40;
         if (currentSkill >= 85) {
@@ -2486,6 +2487,10 @@ function calculateSkillChange(currentAccuracy, currentSkill) {
         }
         // Calculate change needed to reach next threshold
         change = nextThreshold - currentSkill;
+    } else if (currentAccuracy >= 0.79 && currentAccuracy < 0.999) {
+        // 4/5 (80% accuracy) gives a significant boost of 15-20%
+        // Use 17.5% as a middle ground
+        change = 17.5;
     } else if (currentAccuracy >= CONFIG.SKILL_INCREASE_THRESHOLD) {
         // Increase skill - more increase for higher accuracy
         const excessAccuracy = currentAccuracy - CONFIG.SKILL_INCREASE_THRESHOLD;
